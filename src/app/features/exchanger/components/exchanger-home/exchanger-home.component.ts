@@ -166,6 +166,7 @@ export class ExchangerHomeComponent implements OnInit {
     this.from = data.fromObj.key;
     this.to = data.toObj.key;
     this.getTimeseries();
+    this.getSymbolsList();
   }
   onResize(event: any) {
     this.view = [event.target.innerWidth - 900, 280 ];
