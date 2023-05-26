@@ -1,0 +1,57 @@
+<main class="container-fluid mt-2">
+  <div *ngIf='dataLoading' class="dataLoading">
+    <img src="assets/images/loading.svg" />
+  </div>
+  <div *ngIf='!dataLoading'>
+    <div class="jumbotron">
+      <div class="row">
+        <div class="col-md-9">
+          <h1 *ngIf="!isDetails">Currency Exchanger</h1>
+          <h1 *ngIf="isDetails">{{detailsSymbol?.key}} - {{detailsSymbol?.value}}</h1>
+        </div>
+        <div class="col-md-3 text-end" *ngIf="isDetails">
+          <a [routerLink]="['/']" class="btn btn-primary">
+            Back To Home
+          </a>
+        </div>
+      </div>
+      <app-exchanger-form [latestList]="latestList" [from]="from" [to]="to"
+        (isDetails)="getDetails($event)"></app-exchanger-form>
+      <div class="row" *ngIf="!isDetails">
+        <div class="col-md-4 mt-4" *ngFor="let item of toDaylatestList">
+          <div class="card text-center">
+            <div class="card-body show-details">
+              <h5>{{item.key}}</h5>
+              <p class="m-0">
+                1 EUR = {{item.value}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="isDetails">
+        <div class="col-md-12">
+          <div class="card text-center">
+            <div class="card-body show-details">
+              <div class="row justify-content-center">
+                <div class="col-md-11 mt-4">
+                  <div *ngIf='timeseriesDataLoading' class="dataLoading">
+                    <img src="assets/images/loading.svg" />
+                  </div>
+                  <ng-container *ngIf="!timeseriesDataLoading">
+                    <ngx-charts-line-chart [legend]="legend" [showXAxisLabel]="showXAxisLabel"
+                      (window:resize)="onResize($event)" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis"
+                      [yAxis]="yAxis" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [timeline]="timeline"
+                      [results]="multi">
+                    </ngx-charts-line-chart>
+                  </ng-container>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

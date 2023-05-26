@@ -1,0 +1,75 @@
+<form (submit)="submit()" [formGroup]="formGroup">
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Amount</label>
+        <input type="number" (keyup)="getExchangeratesData()" class="form-control" formControlName="amount">
+        <small class="has-error text-danger" *ngIf="hasError(formGroup, 'amount', 'required')">
+          Required
+        </small>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="row mb-3">
+        <div class="col-md-5">
+          <div class="form-group">
+            <label class="form-label">From</label>
+            <select class="form-select" formControlName="from" (change)="getExchangeratesData()"
+              aria-label="Default select example">
+              <option *ngFor="let item of latestList" [value]="item.key">{{item.key}}</option>
+            </select>
+            <small class="has-error text-danger" *ngIf="hasError(formGroup, 'from', 'required')">
+              Required
+            </small>
+          </div>
+          </div>
+
+        <div class="col-md-2 d-flex align-items-center justify-content-center exchange">
+          <img src="assets/images/exchange.svg" />
+        </div>
+        <div class="col-md-5">
+          <div class="form-group">
+            <label class="form-label">To</label>
+            <select class="form-select" formControlName="to" (change)="getExchangeratesData()"
+              aria-label="Default select example">
+              <option *ngFor="let item of latestList" [value]="item.key">{{item.key}}</option>
+            </select>
+            <small class="has-error text-danger" *ngIf="hasError(formGroup, 'to', 'required')">
+              Required
+            </small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <button type="submit" [disabled]="loading" [class.loading]="loading" class="btn btn-primary w-100">
+            <span>Convert</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="row mt-3">
+  <div class="col-md-4 mb-2">
+    <div class="card">
+      <div class="card-body show-details">
+        <p class="m-0" *ngIf="fromObj && toObj"> 1 {{fromObj.key}} = {{toObj.value}} {{toObj.key}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 mb-2">
+    <div class="card">
+      <div class="card-body show-details">
+        <p class="m-0 text-center" *ngIf="convertedCurrency">
+          {{convertedCurrency.result}} {{convertedCurrency.query.to}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 d-flex align-items-center justify-content-center">
+    <button [disabled]="!convertedCurrency" (click)="navigateDetails()" class="btn btn-primary">
+      More Details
+    </button>
+  </div>
+</div>

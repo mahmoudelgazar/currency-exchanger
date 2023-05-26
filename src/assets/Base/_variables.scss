@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$white: #FFFFFF;
+$Dwhite : #FBFEFF;
+$whiteFC : #FCFCFC;
+$whiteFB : #FCFCFB;
+$grey-3: #333333;
+$grey-6: #666666;
+$grey-5:#555555;
+$grey-9:#999999;
+$grey-c:#CCCCCC;
+$grey-d:#DDDDDD;
+$green-AB : #A8BD30;
+$green-4 : #419187;
+$black-0: #000000;
+$red: #dc3545;
+$blue: #4990E1;
+$blue-4: #4990E1;
+$blue-2D : #2D588A;
+$blue-4B : #4B92DB;
+$blue-txt : #3E74B3;
+
+
+
+$fontRegular: 400;
+$fontMedium: 500;
+$fontSemiBold: 600;
+$fontBold: 700;
+
+$imgPath: 'images';
+
+$base-size: 19;
+@function rem($target, $context: $base-size) {
+    @return ($target / $base-size) * 1rem;
+}
+$default-behaviour : true ; //  true or false
+
+//== font-families
+//
+// font family
+$font-family-default: 'Montserrat', sans-serif;
+$font-numbers-default : 'Montserrat', sans-serif;
+$fonts-map-default: (
+
+);
+// font family
+$font-family-reverse: 'Montserrat', sans-serif;
+$font-numbers-reverse : 'Montserrat', sans-serif;
+$fonts-map-reverse: (
+);

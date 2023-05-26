@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: 0.3rem;
+}
+
+.form-group {
+  margin-bottom: 0.5263157895rem;
+}
+
+.navbar-brand {
+  color: #FFFFFF;
+}
+
+.exchange img {
+  width: 30px;
+}
+@media (max-width: 766px) {
+  .exchange {
+    display: none !important;
+  }
+}
+
+.dataLoading {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+.dataLoading img {
+  width: 50px;
+  height: 50px;
+}
+
+.loading {
+  position: relative;
+}
+.loading span::after {
+  content: url("images/loading.svg");
+  position: absolute;
+  right: 10px;
+  left: 10px;
+  top: 50%;
+  height: 30px;
+  transform: translateY(-50%);
+}
+.loading span-field::after {
+  content: url("images/loading.svg");
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  height: 30px;
+  transform: translateY(-50%);
+  margin-top: -10px;
+}
+.loading-btn {
+  transition: none !important;
+  background: url("images/loading.svg") no-repeat center;
+}
+
+.toast-container .ngx-toastr.toast-error {
+  background-color: #ff4444;
+}
+.toast-container .ngx-toastr.toast-success {
+  background-color: #00c851;
+}
+
+.show-details {
+  min-height: 56px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -webkit-appearance: textfield;
+          appearance: textfield;
+  -moz-appearance: textfield;
+}/*# sourceMappingURL=main.css.map */
